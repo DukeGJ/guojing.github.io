@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 郭靖的个人博客
 subtitle:
 description:
 keywords:
-author: John Doe
-language:
-timezone:
+author: 郭靖
+language: zh-Hans
+timezone: Asia/shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
+url: https://dukegj.github.io/guojing.github.io
+root: /guojing.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
