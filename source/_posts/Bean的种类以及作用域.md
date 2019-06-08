@@ -40,7 +40,7 @@ bean.xml
 ```
 直接创建Bean的实例并返回
 ## FactoryBean
-是一个特殊的Bean，具有工厂生产Bean的能力，只能生成特定的对象，必须实现`FactoryBean`接口，此接口提供的getObject()用于返回特定的bean。**AOP**的底层实现基于此概念
+是一个特殊的Bean，具有工厂生产Bean的能力，只能生成特定的对象，必须实现`FactoryBean`接口，此接口提供的getObject()用于返回特定的bean。
 ```
 //必须实现FactoryBean接口
 public class MyFactoryBean implements FactoryBean {
