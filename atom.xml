@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>个人博客</title>
+  
+  
+  <link href="/guojing.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://dukegj.github.io/guojing.github.io/"/>
+  <updated>2019-06-13T09:34:08.492Z</updated>
+  <id>https://dukegj.github.io/guojing.github.io/</id>
+  
+  <author>
+    <name>郭靖</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot获取前端请求参数</title>
+    <link href="https://dukegj.github.io/guojing.github.io/2019/06/13/SpringBoot%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0/"/>
+    <id>https://dukegj.github.io/guojing.github.io/2019/06/13/SpringBoot获取前端请求参数/</id>
+    <published>2019-06-13T09:32:25.000Z</published>
+    <updated>2019-06-13T09:34:08.492Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;SpringBoot获取前端请求参数&quot;&gt;&lt;a href=&quot;#SpringBoot获取前端请求参数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SpringBoot" scheme="https://dukegj.github.io/guojing.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bean的生命周期</title>
+    <link href="https://dukegj.github.io/guojing.github.io/2019/06/08/Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>https://dukegj.github.io/guojing.github.io/2019/06/08/Bean的生命周期/</id>
+    <published>2019-06-08T11:29:12.000Z</published>
+    <updated>2019-06-12T09:43:32.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Bean的生命周期&quot;&gt;&lt;a href=&quot;#Bean的生命周期&quot; class=&quot;headerlink&quot; title=&quot;Bean的生命周期&quot;&gt;&lt;/a&gt;Bean的生命周期&lt;/h1&gt;&lt;p&gt;Spring
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Bean的种类以及作用域</title>
+    <link href="https://dukegj.github.io/guojing.github.io/2019/06/08/Bean%E7%9A%84%E7%A7%8D%E7%B1%BB%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>https://dukegj.github.io/guojing.github.io/2019/06/08/Bean的种类以及作用域/</id>
+    <published>2019-06-07T16:06:28.000Z</published>
+    <updated>2019-06-12T09:43:32.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Bean-的种类&quot;&gt;&lt;a href=&quot;#Bean-的种类&quot; class=&quot;headerlink&quot; title=&quot;Bean 的种类&quot;&gt;&lt;/a&gt;Bean 的种类&lt;/h1&gt;&lt;h2 id=&quot;普通Bean&quot;&gt;&lt;a href=&quot;#普通Bean&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Bean实例化方式</title>
+    <link href="https://dukegj.github.io/guojing.github.io/2019/06/07/Bean%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%96%B9%E5%BC%8F/"/>
+    <id>https://dukegj.github.io/guojing.github.io/2019/06/07/Bean实例化方式/</id>
+    <published>2019-06-07T14:33:08.000Z</published>
+    <updated>2019-06-12T09:43:32.677Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SpringBean实例化的方式&quot;&gt;&lt;a href=&quot;#SpringBean实例化的方式&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>集合总结</title>
+    <link href="https://dukegj.github.io/guojing.github.io/2019/05/31/%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/"/>
+    <id>https://dukegj.github.io/guojing.github.io/2019/05/31/集合总结/</id>
+    <published>2019-05-30T17:09:55.000Z</published>
+    <updated>2019-06-12T09:43:32.687Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-背景&quot;&gt;&lt;a href=&quot;#一-背景&quot; class=&quot;headerlink&quot; title=&quot;一 背景&quot;&gt;&lt;/a&gt;一 背景&lt;/h2&gt;&lt;p&gt; 
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
