@@ -91,7 +91,12 @@ private void grow(int minCapacity) {
         newCapacity = minCapacity;
     if (newCapacity - MAX_ARRAY_SIZE > 0)
         newCapacity = hugeCapacity(minCapacity);
-    // minCapacity is usually close to size, so this is a win:
     elementData = Arrays.copyOf(elementData, newCapacity);
 }
 ```
+可以看到，在`grow()`方法中完成扩容，首先是计算新的数组大小，
+
+* 把oldCapacity左移一位，相当于执行了oldCapacity*0.5
+* 然后新的数组长度为1.5*oldCapacity
+
+最后把旧的数组数据全部拷贝到新的数组中
