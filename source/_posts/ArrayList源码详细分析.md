@@ -84,14 +84,55 @@ private void ensureExplicitCapacity(int minCapacity) {
 继续分析`grow()`方法:
 ```
 private void grow(int minCapacity) {
+    //把当前的数组容量赋值给oldCapacity
     int oldCapacity = elementData.length;
-    //通过位移操作把数组扩容为当前的1.5倍
+    //oldCapacity左移1位，相当于做oldCapacity/2，新的容量为1.5*oldCapacity
     int newCapacity = oldCapacity + (oldCapacity >> 1);
     if (newCapacity - minCapacity < 0)
+    //当没有初始容量或者初始容量为1
         newCapacity = minCapacity;
     if (newCapacity - MAX_ARRAY_SIZE > 0)
         newCapacity = hugeCapacity(minCapacity);
-    // minCapacity is usually close to size, so this is a win:
+    //把旧的数组内容拷贝到新的数组中
     elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+可以看到，在`grow()`方法中完成扩容，这是`add`方法的过程，再来看在指定位置增加元素过程：
+```
+public void add(int index, E element) {
+    //检查边界，判断index是否在0~size之间
+    rangeCheckForAdd(index);
+    ensureCapacityInternal(size + 1);
+    //在拷贝的时候只把index~size之间的内容拷贝到新的数组中，前面的内容不变，相当于index之后的元素全部后移一位
+    System.arraycopy(elementData, index, elementData, index + 1,
+                     size - index);
+    elementData[index] = element;
+    size++;
+}
+private void rangeCheckForAdd(int index) {
+    if (index > size || index < 0)
+        throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+}
+```
+其他的`add`操作类似，不再详述。再看一下`remove`方法：
+```
+public E remove(int index) {
+        //边界检查，由于对象都是连续存放，只要判断index是否大于list的size即可
+        rangeCheck(index);
+        modCount++;
+        E oldValue = elementData(index);
+        //ArrayList删除元素需要移动数组，确保
+        int numMoved = size - index - 1;
+        if (numMoved > 0)
+            System.arraycopy(elementData, index+1, elementData, index,
+                             numMoved);
+        //GC
+        elementData[--size] = null;
+
+        return oldValue;
+}
+private void rangeCheck(int index) {
+        if (index >= size)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
 }
 ```
