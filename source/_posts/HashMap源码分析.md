@@ -29,6 +29,8 @@ HashMap在jdk1.8中，HashMap是由数组，链表，树实现的
 - 从任一节点到其每个叶子的节点的路径都包含相同数目的黑色节点
 
 # 源码分析
+HashMap默认以数组的形式存储，数组的每一个元素称为桶，每个桶中的元素默认以链表的形式存储
+![](HashMap.png),但是当桶中的元素超过一定数量时会转换为红黑树，当桶中的元素小于一定数量时，会重新转换为链表
 先看一下HashMap中的常量含义
 ```
 //默认容量为16
@@ -43,4 +45,40 @@ static final int TREEIFY_THRESHOLD = 8;
 static final int UNTREEIFY_THRESHOLD = 6;
 //数组转为红黑树的阈值
 static final int MIN_TREEIFY_CAPACITY = 64;
+```
+内部类定义：
+```
+static class Node<K,V> implements Map.Entry<K,V> {
+    final int hash;  //所属桶的hash值
+    final K key;     //唯一key
+    V value;         
+    Node<K,V> next;  //指向桶中的下一个元素
+
+    Node(int hash, K key, V value, Node<K,V> next) {
+        this.hash = hash;
+        this.key = key;
+        this.value = value;
+        this.next = next;
+    }
+}
+```
+`Node`实现了`Map.Entry`接口，本质上是一个K-V映射，前面说过，哈希算法把一连串的二进制转换为固定长度的二进制，只要哈希表中的记录数大于哈希表中的长度，那么必然出现两个不同的记录会有相同的哈希值（哈希冲突），HashMap的处理策略是链式存储相同的哈希值，在JDK1.8中又新增了红黑树：
+
+```
+public HashMap(int initialCapacity, float loadFactor) {
+    //数组初始容量不能小于0
+    if (initialCapacity < 0)
+        throw new IllegalArgumentException("Illegal initial capacity: " +
+                                           initialCapacity);
+    //数组最大容量不能大于2^30
+    if (initialCapacity > MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    //装载因子不能小于0
+    if (loadFactor <= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException("Illegal load factor: " +
+                                           loadFactor);
+    this.loadFactor = loadFactor;
+    //当hashmap的存储容量等于
+    this.threshold = tableSizeFor(initialCapacity);
+}
 ```
