@@ -3,12 +3,19 @@ title: HashMap源码分析
 date: 2019-10-29 11:22:18
 tags:
 ---
+
 # 背景
+
 HashMap在jdk1.8中，HashMap是由数组，链表，树实现的
+
 # 常用知识
+
 在开始分析源码之前，我们先来复习几个概念：
+
 ## 哈希算法
+
 将任意长度的二进制值串映射为固定长度的二进制值串，这个映射的规则就是哈希算法，而通过原始数据映射之后得到的二进制值串就是哈希值（散列值）．一个优秀的哈希算法需要满足：
+
 - 从哈希值不能反向推导出原始数据（所以哈希算法也叫单向哈希算法）；
 - 对输入数据非常敏感，哪怕原始数据只修改了一个 Bit，最后得到的哈希值也大不相同；
 - 散列冲突的概率要很小，对于不同的原始数据，哈希值相同的概率非常小；
@@ -29,6 +36,74 @@ HashMap在jdk1.8中，HashMap是由数组，链表，树实现的
 - 从任一节点到其每个叶子的节点的路径都包含相同数目的黑色节点
 
 # 源码分析
+
+## 构造函数
+先来看一下构造函数
+```
+//默认构造函数，负载因子为0.75，默认容量为16
+public HashMap() {
+    this.loadFactor = DEFAULT_LOAD_FACTOR;
+}
+public HashMap(int initialCapacity) {
+    this(initialCapacity, DEFAULT_LOAD_FACTOR);
+}
+public HashMap(int initialCapacity, float loadFactor) {
+    //初始容量不能为复数
+    if (initialCapacity < 0)
+        throw new IllegalArgumentException("Illegal initial capacity: " +
+                                            initialCapacity);
+    //初始容量不能大于2^30
+    if (initialCapacity > MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    //负载因子不能为负
+    if (loadFactor <= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException("Illegal load factor: " +
+                                            loadFactor);
+    this.loadFactor = loadFactor;
+    //计算下一次扩容的阈值
+    this.threshold = tableSizeFor(initialCapacity);
+}
+```
+## tableSizeFor方法
+tableSizeFor方法会计算出一个大于输入参数且最近的2的整数次幂的值
+```
+static final int tableSizeFor(int cap) {
+    int n = cap - 1;
+    n |= n >>> 1;
+    n |= n >>> 2;
+    n |= n >>> 4;
+    n |= n >>> 8;
+    n |= n >>> 16;
+    return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+}
+```
+我们来详细分析一下tableSizeFor方法，对于任意整数，例如：123456789，其二进制为：0000 0111 0101 1011 1100 1101 0001 0101‬
+
+执行操作|结果
+-|-|
+cap-1|0000 0111 0101 1011 1100 1101 0001 0100
+n >>> 1|0000 0011 1010 1101 1110 0110 1000 1010
+n \|= n >>> 1|0000 0111 1010 1111 1110 1111 1000 1110
+n >>> 2|0000 0001 1110 1011 1111 1011 1110 0011
+n \|= n >>> 2| 0000 0111 1110 1111 1111 1111 1110 1111
+n >>> 4|0000 0000 0111 1110 1111 1111 1111 1110
+n \|= n >>> 4|0000 0111 1111 1111 1111 1111 1111 1111
+n >>> 8|0000 0000 0000 0111 1111 1111 1111 1111
+n \|= n >>> 8|0000 0111 1111 1111 1111 1111 1111 1111
+n >>> 16|0000 0000 0000 0000 0000 0000 0000 0111
+n \|= n >>> 16|0000 0111 1111 1111 1111 1111 1111 1111
+n + 1|0000 1000 0000 0000 0000 0000 0000 0000
+
+计算结果为:‭134217728‬=2^27,在JVM中，整形占4个字节，所以通过位移，或操作，从最高位开始，按照从低到高的顺序，逐次置为1，非常精彩的操作，最有+1时，最高位进一，其余变为0
+
+## hash计算
+
+## put方法
+
+## 扩容
+
+## get方法
+
 HashMap默认以数组的形式存储，数组的每一个元素称为桶，每个桶中的元素默认以链表的形式存储
 ![](HashMap.png),但是当桶中的元素超过一定数量时会转换为红黑树，当桶中的元素小于一定数量时，会重新转换为链表
 先看一下HashMap中的常量含义
@@ -47,6 +122,7 @@ static final int UNTREEIFY_THRESHOLD = 6;
 static final int MIN_TREEIFY_CAPACITY = 64;
 ```
 内部类定义：
+
 ```
 static class Node<K,V> implements Map.Entry<K,V> {
     final int hash;  //所属桶的hash值
@@ -62,6 +138,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
     }
 }
 ```
+
 `Node`实现了`Map.Entry`接口，本质上是一个K-V映射，前面说过，哈希算法把一连串的二进制转换为固定长度的二进制，只要哈希表中的记录数大于哈希表中的长度，那么必然出现两个不同的记录会有相同的哈希值（哈希冲突），HashMap的处理策略是链式存储相同的哈希值，在JDK1.8中又新增了红黑树：
 
 ```
