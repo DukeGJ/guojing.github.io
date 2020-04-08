@@ -96,18 +96,19 @@
 
 
 
-  <meta name="description" content="一 背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 二 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的">
+  <meta name="description" content="背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的容器注意">
+<meta name="keywords" content="Collections">
 <meta property="og:type" content="article">
 <meta property="og:title" content="集合总结">
 <meta property="og:url" content="https://dukegj.github.io/guojing.github.io/2019/05/31/集合总结/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="一 背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 二 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的">
+<meta property="og:description" content="背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的容器注意">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://dukegj.github.io/guojing.github.io/2019/05/31/集合总结/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE.png">
-<meta property="og:updated_time" content="2019-06-12T09:43:32.687Z">
+<meta property="og:updated_time" content="2019-09-17T15:20:49.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合总结">
-<meta name="twitter:description" content="一 背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 二 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的">
+<meta name="twitter:description" content="背景  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念 什么是集合  Java的集合类存放在java.util包下，是一个用来存放对象的容器注意">
 <meta name="twitter:image" content="https://dukegj.github.io/guojing.github.io/2019/05/31/集合总结/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE.png">
 
 
@@ -416,7 +417,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-12 17:43:32" itemprop="dateModified" datetime="2019-06-12T17:43:32+08:00">2019-06-12</time>
+                <time title="修改时间：2019-09-17 23:20:49" itemprop="dateModified" datetime="2019-09-17T23:20:49+08:00">2019-09-17</time>
               
             
           </span>
@@ -451,7 +452,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">1.2k</span>
               
 
               
@@ -465,7 +466,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -485,34 +486,30 @@
       
 
       
-        <h2 id="一-背景"><a href="#一-背景" class="headerlink" title="一 背景"></a>一 背景</h2><p>  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念</p>
-<h2 id="二-什么是集合"><a href="#二-什么是集合" class="headerlink" title="二 什么是集合"></a>二 什么是集合</h2><p>  Java的集合类存放在<code>java.util</code>包下，是一个用来存放对象的容器注意：只能存放对象，如果存放基本数据类型元素，会自动转换为其包装类型集合存放的是多个对象的引用，对象本身还在堆内存中集合可以存放不同类型，不限数量的对象。</p>
-<h2 id="三-集合框架图"><a href="#三-集合框架图" class="headerlink" title="三  集合框架图"></a>三  集合框架图</h2><p><img src="/guojing.github.io/2019/05/31/集合总结/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE.png" alt="logo"><br>    可以看到，除了<code>Map</code>，其他的都实现了<code>Iterable</code>接口，这是一个用于遍历集合中的元素的接口，主要的方法有<code>iterator()</code>,方法，用来返回一个迭代器，在JDK1.8又新增了两个默认实现方法，<code>spliterator()</code>和<code>forEach(Consumer&lt;? super T&gt; action)</code>方法，前者会用来返回一个可分割的迭代器，目的是为了并行遍历元素，后者按照<code>Iterable</code>对每个元素执行操作，直到处理完所有的元素或者抛出异常，除非实现类另有规定，否则按照迭代器顺序执行，接下来会对所有的接口和实现类进行详细分析。</p>
-<h2 id="四-Iterator"><a href="#四-Iterator" class="headerlink" title="四 Iterator"></a>四 Iterator</h2><p>  迭代器，用来遍历集合中的元素，主要有以下三个方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//判断是否有下一个元素，在调用next()方法之前应该先调用该方法</span><br><span class="line">boolean hasNext();</span><br><span class="line">//返回刚越过的元素，迭代器游标后移</span><br><span class="line">E next();</span><br><span class="line">//从集合中删除刚越过的元素，在调用该方法之前必须调用过next()方法，否则会抛出异常</span><br><span class="line">default void remove()</span><br></pre></td></tr></table></figure>
-
-<p>迭代器与其他遍历方式不同的特点在于：迭代器的游标指向两个元素中间，不可以通过游标直接获得对应的元素，从这个方向可以看出有意把集合与遍历分离</p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><blockquote>
-<p>List特点：有序，允许重复</p>
-</blockquote>
-<p>List有典型的三个实现：分别是ArrayList,LinkedList,Vector,接下来详细介绍这三个实现</p>
-<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><blockquote>
-<p>底层数据结构是数组，查找快，增加，删除慢，且非线程安全的<br>成员变量：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//接口实现标明该集合可以随机访问，克隆，序列化</span><br><span class="line">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; implements  List&lt;E&gt;,RandomAccess,Cloneable,java.io.Serializable&#123;    </span><br><span class="line">	//序列化ID</span><br><span class="line">    private static final long serialVersionUID = 8683452581122892189L;</span><br><span class="line">    private static final int DEFAULT_CAPACITY = 10; </span><br><span class="line">    private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">	private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">    transient Object[] elementData; </span><br><span class="line">    private int size;</span><br></pre></td></tr></table></figure>
-
-<p>构造函数：</p>
-<ol>
-<li>public ArrayList(int initialCapacity)，指定初始容量</li>
-<li>public ArrayList() 默认构造函数，初始容量为10</li>
-<li>public ArrayList(Collection&lt;? extends E&gt; c)，初始容量为集合c的大小</li>
-</ol>
-<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><blockquote>
-<p>底层数据结构是链表，查找慢，增加，删除快，且非线程安全的</p>
-</blockquote>
-<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><blockquote>
-<p>底层数据结构是数组，查找快，增加，删除慢，且是线程安全的</p>
-</blockquote>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>  通常，我们的程序需要根据程序运行时才知道要创建多少个对象。但除非程序运行，否则我们是不知道程序创建多少个对象。这就要求我们的程序具备一种在任何时间，任何地点创建任意多个对象的。但是这些对象怎么存储呢？首先想到的就是数组，但是数组有一个缺点，即只能存放统一类型数据，而且长度是固定的，故此诞生了集合的概念</p>
+<h2 id="什么是集合"><a href="#什么是集合" class="headerlink" title="什么是集合"></a>什么是集合</h2><p>  Java的集合类存放在<code>java.util</code>包下，是一个用来存放对象的容器注意：只能存放对象，如果存放基本数据类型元素，会自动转换为其包装类型集合存放的是多个对象的引用，对象本身还在堆内存中集合可以存放不同类型，不限数量的对象。</p>
+<h1 id="集合框架图"><a href="#集合框架图" class="headerlink" title="集合框架图"></a>集合框架图</h1><p><img src="/guojing.github.io/2019/05/31/集合总结/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE.png" alt="logo"><br>    可以看到，除了<code>Map</code>，其他的都实现了<code>Iterable</code>接口，这是一个用于遍历集合中的元素的接口，主要的方法有<code>iterator()</code>,方法，用来返回一个迭代器，在JDK1.8又新增了两个默认实现方法，<code>spliterator()</code>和<code>forEach(Consumer&lt;? super T&gt; action)</code>方法，前者会用来返回一个可分割的迭代器，目的是为了并行遍历元素，后者按照<code>Iterable</code>对每个元素执行操作，直到处理完所有的元素或者抛出异常，除非实现类另有规定，否则按照迭代器顺序执行。<br>    <code>List</code>,<code>Map</code>,<code>Set</code>是集合的三大主要接口：</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+<li>有序且允许重复</li>
+<li>ArrayList的底层采用数组实现，查找效率高，增加或者删除效率低，非线程安全的</li>
+<li>LinkedList的底层采用链表实现，每一个<code>Node</code>除了保存元素之外，还会保存前驱节点和后继节点，查找效率低，增加或者删除效率高，非线程安全的</li>
+<li>Vector的底层采用数组实现，在一些方法上使用<code>synchronized</code>关键字加锁，查找效率高，增加或者删除效率低，线程安全</li>
+<li>CopyOnWriteArrayList底层采用数组实现，在添加对象时会加锁，读取对象时不加锁</li>
+</ul>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul>
+<li>Map保存的是键值对，其中key不允许重复，允许为null，value可以重复</li>
+<li>HashMap的底层数组实现，hash码相同的key采用链式存储，每一个<code>Node</code>都会保存后继节点</li>
+<li>LinkedHashMap的底层采用链表实现，每一个<code>Entry</code>除了保存key和value之外，还保存前驱节点和后继节点</li>
+<li>TreeMap底层采用树形结构实现，每一个<code>Entry</code>都会保存左子节点，右子节点，父节点</li>
+<li>HashTable的实现基本与HashMap相同，key不允许为null，且部分方法使用<code>synchronized</code>修饰，保证数据的一致性</li>
+<li>ConcurrentHashMap底层采用数组实现，key，value都不允许为null</li>
+</ul>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><ul>
+<li>无序不允许重复</li>
+<li>HashSet底层采用HashMap存储，利用Map的key不允许重复的特性，允许为null</li>
+<li>LinkedHashSet</li>
+<li>TreeSet底层采用二叉树排序</li>
+</ul>
 
       
     </div>
@@ -533,6 +530,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/guojing.github.io/tags/Collections/" rel="tag"># Collections</a>
+          
+        </div>
       
 
       
@@ -620,7 +623,7 @@
                 
                   <a href="/guojing.github.io/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -641,7 +644,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -712,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-背景"><span class="nav-number">1.</span> <span class="nav-text">一 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-什么是集合"><span class="nav-number">2.</span> <span class="nav-text">二 什么是集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-集合框架图"><span class="nav-number">3.</span> <span class="nav-text">三  集合框架图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-Iterator"><span class="nav-number">4.</span> <span class="nav-text">四 Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">4.1.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList"><span class="nav-number">4.1.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedList"><span class="nav-number">4.1.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector"><span class="nav-number">4.1.3.</span> <span class="nav-text">Vector</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是集合"><span class="nav-number">1.1.</span> <span class="nav-text">什么是集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合框架图"><span class="nav-number">2.</span> <span class="nav-text">集合框架图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">2.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">2.2.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.3.</span> <span class="nav-text">Set</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -733,7 +738,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -745,7 +750,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">11k</span>
+    <span title="站点总字数">35k</span>
   
 
   
@@ -754,7 +759,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">32 分钟</span>
   
 </div>
 
